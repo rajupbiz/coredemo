@@ -5,4 +5,5 @@ import com.blob.model.Candidate;
 
 public interface CandidateDao extends GenericDao<Candidate, Long> {
 
+	Candidate findByGid(String gid);
 }

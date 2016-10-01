@@ -17,17 +17,77 @@ public class MasterPrivilege {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name="privilege")
-	private String privilege;
+	@Column(name="privilege_name")
+	private String privilegeName ;
 	
 	@Column(name="privilege_desc")
 	private String privilegeDesc;
 	
-	@Column(name="sequence_number")
-	private int sequenceNumber;
+	@Column(name="e")
+	private Boolean execute;
 	
+	@Column(name="v")
+	private Boolean view;
+	
+	@Column(name="u")
+	private Boolean update;
+	
+	@Column(name="d")
+	private Boolean detele;
+	
+	@Column(name="a")
+	private Boolean add;
+	
+	public String getPrivilegeName() {
+		return privilegeName;
+	}
+
+	public Boolean getExecute() {
+		return execute;
+	}
+
+	public void setExecute(Boolean execute) {
+		this.execute = execute;
+	}
+
+	public void setPrivilegeName(String privilegeName) {
+		this.privilegeName = privilegeName;
+	}
+
+	public Boolean getView() {
+		return view;
+	}
+
+	public void setView(Boolean view) {
+		this.view = view;
+	}
+
+	public Boolean getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(Boolean update) {
+		this.update = update;
+	}
+
+	public Boolean getDetele() {
+		return detele;
+	}
+
+	public void setDetele(Boolean detele) {
+		this.detele = detele;
+	}
+
+	public Boolean getAdd() {
+		return add;
+	}
+
+	public void setAdd(Boolean add) {
+		this.add = add;
+	}
+
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_on")
 	private Date createOn;
@@ -40,14 +100,6 @@ public class MasterPrivilege {
 		this.id = id;
 	}
 
-	public String getPrivilege() {
-		return privilege;
-	}
-
-	public void setPrivilege(String privilege) {
-		this.privilege = privilege;
-	}
-
 	public String getPrivilegeDesc() {
 		return privilegeDesc;
 	}
@@ -56,19 +108,11 @@ public class MasterPrivilege {
 		this.privilegeDesc = privilegeDesc;
 	}
 
-	public int getSequenceNumber() {
-		return sequenceNumber;
-	}
-
-	public void setSequenceNumber(int sequenceNumber) {
-		this.sequenceNumber = sequenceNumber;
-	}
-
-	public Character getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Character status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -79,9 +123,4 @@ public class MasterPrivilege {
 	public void setCreateOn(Date createOn) {
 		this.createOn = createOn;
 	}
-
-	
-	
-	
-	
 }

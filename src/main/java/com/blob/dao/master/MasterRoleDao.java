@@ -5,4 +5,6 @@ import com.blob.model.master.MasterRole;
 
 public interface MasterRoleDao extends GenericDao<MasterRole, Long> {
 
+	MasterRole findByRoleName(String rolename);
+	
 }

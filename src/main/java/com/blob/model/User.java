@@ -1,13 +1,16 @@
 package com.blob.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,6 +27,9 @@ public class User {
 	@Column(name="username")
 	private String username;
 	
+	@Column(name="email")
+	private String email;
+	
 	@Column(name="password")
 	private String password;
 
@@ -31,11 +37,25 @@ public class User {
 	@JoinColumn(name="user_type_id")
 	private MasterUserType userType;
 	
+	@OneToMany(mappedBy="user")
+	private List<UserRole> userRoles;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
+	private List<Candidate> candidates;
+	
+	public List<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(List<UserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
 	@Column(name="last_logged_in")
 	private Date lastLoggedIn;
 	
 	@Column(name="status")
-	private char status;
+	private String status;
 	
 	@Column(name="create_user")
 	private Long createUser;
@@ -55,14 +75,6 @@ public class User {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getPassword() {
@@ -93,11 +105,11 @@ public class User {
 		return createUser;
 	}
 
-	public char getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -127,5 +139,29 @@ public class User {
 
 	public void setUpdateOn(Date updateOn) {
 		this.updateOn = updateOn;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public List<Candidate> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(List<Candidate> candidates) {
+		this.candidates = candidates;
 	}
 }

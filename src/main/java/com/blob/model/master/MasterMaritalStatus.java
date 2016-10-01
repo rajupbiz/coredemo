@@ -27,7 +27,7 @@ public class MasterMaritalStatus {
 	private int sequenceNumber;
 	
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_on")
 	private Date createOn;
@@ -64,11 +64,11 @@ public class MasterMaritalStatus {
 		this.sequenceNumber = sequenceNumber;
 	}
 
-	public Character getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Character status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -79,9 +79,5 @@ public class MasterMaritalStatus {
 	public void setCreateOn(Date createOn) {
 		this.createOn = createOn;
 	}
-
-	
-	
-	
 	
 }

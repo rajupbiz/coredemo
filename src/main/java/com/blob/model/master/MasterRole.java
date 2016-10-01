@@ -17,17 +17,30 @@ public class MasterRole {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name="role")
-	private String role;
+	@Column(name="role_name")
+	private String roleName ;
 	
 	@Column(name="role_desc")
 	private String roleDesc;
 	
-	@Column(name="sequence_number")
-	private int sequenceNumber;
-	
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getRoleDesc() {
+		return roleDesc;
+	}
+
+	public void setRoleDesc(String roleDesc) {
+		this.roleDesc = roleDesc;
+	}
+
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_on")
 	private Date createOn;
@@ -40,35 +53,11 @@ public class MasterRole {
 		this.id = id;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public String getRoleDesc() {
-		return roleDesc;
-	}
-
-	public void setRoleDesc(String roleDesc) {
-		this.roleDesc = roleDesc;
-	}
-
-	public int getSequenceNumber() {
-		return sequenceNumber;
-	}
-
-	public void setSequenceNumber(int sequenceNumber) {
-		this.sequenceNumber = sequenceNumber;
-	}
-
-	public Character getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Character status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -79,9 +68,4 @@ public class MasterRole {
 	public void setCreateOn(Date createOn) {
 		this.createOn = createOn;
 	}
-
-	
-	
-	
-	
 }

@@ -1,6 +1,6 @@
 package com.blob.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,9 +17,6 @@ import com.blob.model.master.MasterGan;
 import com.blob.model.master.MasterNadi;
 import com.blob.model.master.MasterNakshtra;
 import com.blob.model.master.MasterRashi;
-import com.blob.model.master.MasterTimeAMPM;
-import com.blob.model.master.MasterTimeHH;
-import com.blob.model.master.MasterTimeMM;
 
 @Entity
 @Table(name="candidate_astro_detail")
@@ -33,30 +30,24 @@ public class CandidateAstroDetail {
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 	
+	@Column(name="birth_name")
+	private String birthName;
+	
 	@Column(name="birth_date")
 	private Date birthDate;
+	
+	@Column(name="birth_time")
+	private Date birthTime;
 
 	@OneToOne
 	@JoinColumn(name="birth_day_of_week_id")
 	private MasterDayOfWeek birthDayOfWeek;
 	
-	@OneToOne
-	@JoinColumn(name="birth_time_hh_id")
-	private MasterTimeHH birthTimeHHID;
-	
-	@OneToOne
-	@JoinColumn(name="birth_time_mm_id")
-	private MasterTimeMM birthTimeMMID;
-	
-	@OneToOne
-	@JoinColumn(name="birth_time_am_pm_id")
-	private MasterTimeAMPM birthTimeAMPMID;
-	
 	@Column(name="birth_place")
 	private String birthPlace;
 	
 	@Column(name="mangal")
-	private boolean mangal;
+	private Boolean mangal;
 	
 	@Column(name="believe_in_horoscope")
 	private boolean believeInHoroscope;
@@ -120,22 +111,6 @@ public class CandidateAstroDetail {
 		this.birthDate = birthDate;
 	}
 
-	public MasterTimeHH getBirthTimeHHID() {
-		return birthTimeHHID;
-	}
-
-	public void setBirthTimeHHID(MasterTimeHH birthTimeHHID) {
-		this.birthTimeHHID = birthTimeHHID;
-	}
-
-	public MasterTimeMM getBirthTimeMMID() {
-		return birthTimeMMID;
-	}
-
-	public void setBirthTimeMMID(MasterTimeMM birthTimeMMID) {
-		this.birthTimeMMID = birthTimeMMID;
-	}
-
 	public String getBirthPlace() {
 		return birthPlace;
 	}
@@ -144,11 +119,11 @@ public class CandidateAstroDetail {
 		this.birthPlace = birthPlace;
 	}
 
-	public boolean isMangal() {
+	public Boolean isMangal() {
 		return mangal;
 	}
 
-	public void setMangal(boolean mangal) {
+	public void setMangal(Boolean mangal) {
 		this.mangal = mangal;
 	}
 
@@ -248,12 +223,20 @@ public class CandidateAstroDetail {
 		this.birthDayOfWeek = birthDayOfWeek;
 	}
 
-	public MasterTimeAMPM getBirthTimeAMPMID() {
-		return birthTimeAMPMID;
+	public String getBirthName() {
+		return birthName;
 	}
 
-	public void setBirthTimeAMPMID(MasterTimeAMPM birthTimeAMPMID) {
-		this.birthTimeAMPMID = birthTimeAMPMID;
+	public void setBirthName(String birthName) {
+		this.birthName = birthName;
+	}
+
+	public Date getBirthTime() {
+		return birthTime;
+	}
+
+	public void setBirthTime(Date birthTime) {
+		this.birthTime = birthTime;
 	}
 
 	

@@ -27,7 +27,7 @@ public class MasterBodyType {
 	private int sequenceNumber;
 	
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_on")
 	private Date createOn;
@@ -64,20 +64,20 @@ public class MasterBodyType {
 		this.sequenceNumber = sequenceNumber;
 	}
 
-	public Character getStatus() {
-		return status;
-	}
-
-	public void setStatus(Character status) {
-		this.status = status;
-	}
-
 	public Date getCreateOn() {
 		return createOn;
 	}
 
 	public void setCreateOn(Date createOn) {
 		this.createOn = createOn;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	

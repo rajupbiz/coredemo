@@ -28,7 +28,7 @@ public class ProfileVisitLog {
 	private User visitedUser;
 	
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_user")
 	private Long createUser;
@@ -48,14 +48,6 @@ public class ProfileVisitLog {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Character getStatus() {
-		return status;
-	}
-
-	public void setStatus(Character status) {
-		this.status = status;
 	}
 
 	public Long getCreateUser() {
@@ -104,6 +96,14 @@ public class ProfileVisitLog {
 
 	public void setVisitedUser(User visitedUser) {
 		this.visitedUser = visitedUser;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

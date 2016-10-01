@@ -1,6 +1,6 @@
 package com.blob.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +36,7 @@ public class CandidateOccupation {
 	private String occupationNote;
 		
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_user")
 	private Long createUser;
@@ -98,14 +98,6 @@ public class CandidateOccupation {
 		this.occupationNote = occupationNote;
 	}
 
-	public Character getStatus() {
-		return status;
-	}
-
-	public void setStatus(Character status) {
-		this.status = status;
-	}
-
 	public Long getCreateUser() {
 		return createUser;
 	}
@@ -136,6 +128,14 @@ public class CandidateOccupation {
 
 	public void setUpdateOn(Date updateOn) {
 		this.updateOn = updateOn;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

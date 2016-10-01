@@ -1,11 +1,16 @@
 package com.blob.model;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,10 +23,17 @@ public class Candidate {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name="gid",nullable=false,length=6,unique=true)
+	private String gid;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	@OneToMany(mappedBy="shortlistedCandidate")
 	private List<CandidateShortlistedProfile> shortlistedCandidates;
 	
-	@OneToOne(mappedBy="candidate")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy="candidate")
 	private CandidatePersonalDetail candidatePersonalDetail;
 	
 	@OneToOne(mappedBy="candidate")
@@ -34,11 +46,32 @@ public class Candidate {
 	private CandidateExpectation candidateExpectation;
 	
 	@OneToMany(mappedBy="candidate")
-	private List<CandidateEducation> candidateEducation;
+	private List<CandidateEducation> candidateEducations;
 	
 	@OneToMany(mappedBy="candidate")
-	private List<CandidateAddress> candidateAddress;
+	private List<CandidateAddress> candidateAddresses;
+	
+	@OneToMany(mappedBy="candidate")
+	private List<CandidateContact> candidateContacts;
+	
+	@OneToMany(mappedBy="candidate")
+	private List<CandidateOccupation> candidateOccupations;
+	
+	@OneToMany(mappedBy="candidate")
+	private List<CandidateMessage> candidateMessages;
 
+	@Column(name="status")
+	private String status;
+	
+	@Column(name="create_on")
+	private Date createOn;
+	
+	@Column(name="update_user")
+	private Long updateUser;
+	
+	@Column(name="update_on")
+	private Date updateOn;
+	
 	public Long getId() {
 		return id;
 	}
@@ -89,19 +122,91 @@ public class Candidate {
 		this.candidateExpectation = candidateExpectation;
 	}
 
-	public List<CandidateEducation> getCandidateEducation() {
-		return candidateEducation;
+	public String getGid() {
+		return gid;
 	}
 
-	public void setCandidateEducation(List<CandidateEducation> candidateEducation) {
-		this.candidateEducation = candidateEducation;
+	public void setGid(String gid) {
+		this.gid = gid;
 	}
 
-	public List<CandidateAddress> getCandidateAddress() {
-		return candidateAddress;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCandidateAddress(List<CandidateAddress> candidateAddress) {
-		this.candidateAddress = candidateAddress;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Date getCreateOn() {
+		return createOn;
+	}
+
+	public void setCreateOn(Date createOn) {
+		this.createOn = createOn;
+	}
+
+	public Long getUpdateUser() {
+		return updateUser;
+	}
+
+	public void setUpdateUser(Long updateUser) {
+		this.updateUser = updateUser;
+	}
+
+	public Date getUpdateOn() {
+		return updateOn;
+	}
+
+	public void setUpdateOn(Date updateOn) {
+		this.updateOn = updateOn;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public List<CandidateEducation> getCandidateEducations() {
+		return candidateEducations;
+	}
+
+	public void setCandidateEducations(List<CandidateEducation> candidateEducations) {
+		this.candidateEducations = candidateEducations;
+	}
+
+	public List<CandidateAddress> getCandidateAddresses() {
+		return candidateAddresses;
+	}
+
+	public void setCandidateAddresses(List<CandidateAddress> candidateAddresses) {
+		this.candidateAddresses = candidateAddresses;
+	}
+
+	public List<CandidateContact> getCandidateContacts() {
+		return candidateContacts;
+	}
+
+	public void setCandidateContacts(List<CandidateContact> candidateContacts) {
+		this.candidateContacts = candidateContacts;
+	}
+
+	public List<CandidateOccupation> getCandidateOccupations() {
+		return candidateOccupations;
+	}
+
+	public void setCandidateOccupations(List<CandidateOccupation> candidateOccupations) {
+		this.candidateOccupations = candidateOccupations;
+	}
+
+	public List<CandidateMessage> getCandidateMessages() {
+		return candidateMessages;
+	}
+
+	public void setCandidateMessages(List<CandidateMessage> candidateMessages) {
+		this.candidateMessages = candidateMessages;
 	}
 }

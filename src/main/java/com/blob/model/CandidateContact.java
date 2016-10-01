@@ -1,9 +1,8 @@
 package com.blob.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import com.blob.model.common.Contact;
+import com.blob.model.master.MasterCommunication;
 import com.blob.model.master.MasterRelationship;
 
 @Entity
@@ -28,8 +28,39 @@ public class CandidateContact {
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 	
-	@Embedded
-	private Contact conatct;
+	@Column(name="first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
+	@Column(name="full_name")
+	private String fullName;
+
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="mobile")
+	private String mobile;
+	
+	@Column(name="landline_phone")
+	private String landlinePhone;
+	
+	@OneToOne
+	@JoinColumn(name="preferred_communication_id")
+	private MasterCommunication preferredCommunication;
+
+	@Column(name="skype_id")
+	private String skypeID;
+	
+	@Column(name="linked_in_profile_id")
+	private String linkedInProfileID;
+	
+	@Column(name="facebook_profile_id")
+	private String facebookProfileID;
+	
+	@Column(name="website_or_blog_id")
+	private String websiteOrBlogID;
 	
 	@OneToOne
 	@JoinColumn(name="relationship_id")
@@ -39,7 +70,7 @@ public class CandidateContact {
 	private boolean isPrimaryContact;
 	
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_user")
 	private Long createUser;
@@ -53,6 +84,9 @@ public class CandidateContact {
 	@Column(name="update_on")
 	private Date updateOn;
 
+	@Transient
+	private Long relationshipId;
+	
 	public Long getId() {
 		return id;
 	}
@@ -69,14 +103,6 @@ public class CandidateContact {
 		this.candidate = candidate;
 	}
 
-	public Contact getConatct() {
-		return conatct;
-	}
-
-	public void setConatct(Contact conatct) {
-		this.conatct = conatct;
-	}
-
 	public MasterRelationship getRelationship() {
 		return relationship;
 	}
@@ -91,14 +117,6 @@ public class CandidateContact {
 
 	public void setPrimaryContact(boolean isPrimaryContact) {
 		this.isPrimaryContact = isPrimaryContact;
-	}
-
-	public Character getStatus() {
-		return status;
-	}
-
-	public void setStatus(Character status) {
-		this.status = status;
 	}
 
 	public Long getCreateUser() {
@@ -133,9 +151,107 @@ public class CandidateContact {
 		this.updateOn = updateOn;
 	}
 
-	
+	public String getStatus() {
+		return status;
+	}
 
-	
-	
-	
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getLandlinePhone() {
+		return landlinePhone;
+	}
+
+	public void setLandlinePhone(String landlinePhone) {
+		this.landlinePhone = landlinePhone;
+	}
+
+	public MasterCommunication getPreferredCommunication() {
+		return preferredCommunication;
+	}
+
+	public void setPreferredCommunication(MasterCommunication preferredCommunication) {
+		this.preferredCommunication = preferredCommunication;
+	}
+
+	public String getSkypeID() {
+		return skypeID;
+	}
+
+	public void setSkypeID(String skypeID) {
+		this.skypeID = skypeID;
+	}
+
+	public String getLinkedInProfileID() {
+		return linkedInProfileID;
+	}
+
+	public void setLinkedInProfileID(String linkedInProfileID) {
+		this.linkedInProfileID = linkedInProfileID;
+	}
+
+	public String getFacebookProfileID() {
+		return facebookProfileID;
+	}
+
+	public void setFacebookProfileID(String facebookProfileID) {
+		this.facebookProfileID = facebookProfileID;
+	}
+
+	public String getWebsiteOrBlogID() {
+		return websiteOrBlogID;
+	}
+
+	public void setWebsiteOrBlogID(String websiteOrBlogID) {
+		this.websiteOrBlogID = websiteOrBlogID;
+	}
+
+	public Long getRelationshipId() {
+		return relationshipId;
+	}
+
+	public void setRelationshipId(Long relationshipId) {
+		this.relationshipId = relationshipId;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 }

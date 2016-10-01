@@ -1,6 +1,6 @@
 package com.blob.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,50 +23,32 @@ public class CandidateFamily {
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 	
-	@Column(name="about_family")
-	private String aboutFamily;
-
 	@Column(name="father_first_name")
 	private String fatherFirstName;
+	
+	@Column(name="father_middle_name")
+	private String fatherMiddleName;
 	
 	@Column(name="father_last_name")
 	private String fatherLastName;
 	
-	@Column(name="fathers_occupation")
-	private String fathersOccupation;
-	
-	@Column(name="fathers_yearly_income")
-	private double fathersYearlyIncome;
-	
 	@Column(name="mother_first_name")
 	private String motherFirstName;
 	
-	@Column(name="mothers_occupation")
-	private String mothersOccupation;
-	
-	@Column(name="mothers_yearly_income")
-	private double mothersYearlyIncome;
-	
-	@Column(name="native_place")
-	private String nativePlace;
-	
 	@Column(name="no_of_brother")
-	private int noOfBrother;
+	private Integer noOfBrother;
 	
 	@Column(name="no_of_sister")
-	private int noOfSister;
+	private Integer noOfSister;
 	
 	@Column(name="no_of_married_brother")
-	private int noOfMarriedBrother;
+	private Integer noOfMarriedBrother;
 	
 	@Column(name="no_of_married_sister")
-	private int noOfMarriedSister;
+	private Integer noOfMarriedSister;
 	
-	@Column(name="intercast_in_family")
-	private boolean intercastInFamily;
-	
-	@Column(name="intercast_detail")
-	private String intercastDetail;
+	@Column(name="family_occupation")
+	private String familyOccupation;
 	
 	@Column(name="family_wealth")
 	private String familyWealth;
@@ -74,14 +56,23 @@ public class CandidateFamily {
 	@Column(name="mamas_first_name")
 	private String mamasFirstName;
 	
+	@Column(name="mamas_middle_name")
+	private String mamasMiddleName;
+	
 	@Column(name="mamas_last_name")
 	private String mamasLastName;
 	
 	@Column(name="mamas_native_place")
 	private String mamasNativePlace;
 	
+	@Column(name="mamas_current_place")
+	private String mamasCurrentPlace;
+	
 	@Column(name="relatives")
 	private String relatives;
+	
+	@Column(name="about_family")
+	private String aboutFamily;
 	
 	@Column(name="create_user")
 	private Long createUser;
@@ -127,100 +118,12 @@ public class CandidateFamily {
 		this.fatherLastName = fatherLastName;
 	}
 
-	public String getFathersOccupation() {
-		return fathersOccupation;
-	}
-
-	public void setFathersOccupation(String fathersOccupation) {
-		this.fathersOccupation = fathersOccupation;
-	}
-
-	public double getFathersYearlyIncome() {
-		return fathersYearlyIncome;
-	}
-
-	public void setFathersYearlyIncome(double fathersYearlyIncome) {
-		this.fathersYearlyIncome = fathersYearlyIncome;
-	}
-
 	public String getMotherFirstName() {
 		return motherFirstName;
 	}
 
 	public void setMotherFirstName(String motherFirstName) {
 		this.motherFirstName = motherFirstName;
-	}
-
-	public String getMothersOccupation() {
-		return mothersOccupation;
-	}
-
-	public void setMothersOccupation(String mothersOccupation) {
-		this.mothersOccupation = mothersOccupation;
-	}
-
-	public double getMothersYearlyIncome() {
-		return mothersYearlyIncome;
-	}
-
-	public void setMothersYearlyIncome(double mothersYearlyIncome) {
-		this.mothersYearlyIncome = mothersYearlyIncome;
-	}
-
-	public String getNativePlace() {
-		return nativePlace;
-	}
-
-	public void setNativePlace(String nativePlace) {
-		this.nativePlace = nativePlace;
-	}
-
-	public int getNoOfBrother() {
-		return noOfBrother;
-	}
-
-	public void setNoOfBrother(int noOfBrother) {
-		this.noOfBrother = noOfBrother;
-	}
-
-	public int getNoOfSister() {
-		return noOfSister;
-	}
-
-	public void setNoOfSister(int noOfSister) {
-		this.noOfSister = noOfSister;
-	}
-
-	public int getNoOfMarriedBrother() {
-		return noOfMarriedBrother;
-	}
-
-	public void setNoOfMarriedBrother(int noOfMarriedBrother) {
-		this.noOfMarriedBrother = noOfMarriedBrother;
-	}
-
-	public int getNoOfMarriedSister() {
-		return noOfMarriedSister;
-	}
-
-	public void setNoOfMarriedSister(int noOfMarriedSister) {
-		this.noOfMarriedSister = noOfMarriedSister;
-	}
-
-	public boolean isIntercastInFamily() {
-		return intercastInFamily;
-	}
-
-	public void setIntercastInFamily(boolean intercastInFamily) {
-		this.intercastInFamily = intercastInFamily;
-	}
-
-	public String getIntercastDetail() {
-		return intercastDetail;
-	}
-
-	public void setIntercastDetail(String intercastDetail) {
-		this.intercastDetail = intercastDetail;
 	}
 
 	public String getFamilyWealth() {
@@ -293,6 +196,78 @@ public class CandidateFamily {
 
 	public void setUpdateOn(Date updateOn) {
 		this.updateOn = updateOn;
+	}
+
+	public String getFatherMiddleName() {
+		return fatherMiddleName;
+	}
+
+	public void setFatherMiddleName(String fatherMiddleName) {
+		this.fatherMiddleName = fatherMiddleName;
+	}
+
+	public Candidate getCandidate() {
+		return candidate;
+	}
+
+	public void setCandidate(Candidate candidate) {
+		this.candidate = candidate;
+	}
+
+	public String getFamilyOccupation() {
+		return familyOccupation;
+	}
+
+	public void setFamilyOccupation(String familyOccupation) {
+		this.familyOccupation = familyOccupation;
+	}
+
+	public String getMamasMiddleName() {
+		return mamasMiddleName;
+	}
+
+	public void setMamasMiddleName(String mamasMiddleName) {
+		this.mamasMiddleName = mamasMiddleName;
+	}
+
+	public String getMamasCurrentPlace() {
+		return mamasCurrentPlace;
+	}
+
+	public void setMamasCurrentPlace(String mamasCurrentPlace) {
+		this.mamasCurrentPlace = mamasCurrentPlace;
+	}
+
+	public Integer getNoOfBrother() {
+		return noOfBrother;
+	}
+
+	public void setNoOfBrother(Integer noOfBrother) {
+		this.noOfBrother = noOfBrother;
+	}
+
+	public Integer getNoOfSister() {
+		return noOfSister;
+	}
+
+	public void setNoOfSister(Integer noOfSister) {
+		this.noOfSister = noOfSister;
+	}
+
+	public Integer getNoOfMarriedBrother() {
+		return noOfMarriedBrother;
+	}
+
+	public void setNoOfMarriedBrother(Integer noOfMarriedBrother) {
+		this.noOfMarriedBrother = noOfMarriedBrother;
+	}
+
+	public Integer getNoOfMarriedSister() {
+		return noOfMarriedSister;
+	}
+
+	public void setNoOfMarriedSister(Integer noOfMarriedSister) {
+		this.noOfMarriedSister = noOfMarriedSister;
 	}
 
 	

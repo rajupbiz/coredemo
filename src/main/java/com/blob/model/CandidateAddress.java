@@ -1,6 +1,6 @@
 package com.blob.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.blob.model.master.MasterAddressType;
+import com.blob.model.master.MasterCountry;
+import com.blob.model.master.MasterState;
 
 @Entity
 @Table(name="candidate_address")
@@ -45,17 +48,25 @@ public class CandidateAddress {
 	@Column(name="district")
 	private String district;
 	
-	@Column(name="state")
-	private String state;
+	@OneToOne
+	@JoinColumn(name="state_id")
+	private MasterState state;
 
-	@Column(name="country")
-	private String country;
+	@OneToOne
+	@JoinColumn(name="country_id")
+	private MasterCountry country;
+	
+	@Column(name="other_state")
+	private String otherState;
+	
+	@Column(name="other_country")
+	private String otherCountry;
 	
 	@Column(name="pincode")
 	private String pincode;
 	
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_user")
 	private Long createUser;
@@ -69,6 +80,21 @@ public class CandidateAddress {
 	@Column(name="update_on")
 	private Date updateOn;
 
+	@Transient
+	private Long stateId;
+	
+	@Transient
+	private Long countryId;
+	
+	@Transient
+	private Long specifyOtherStateId;
+	
+	@Transient
+	private Long specifyOtherCountryId;
+	
+	@Transient
+	private String addressStr;
+	
 	public Long getId() {
 		return id;
 	}
@@ -133,36 +159,12 @@ public class CandidateAddress {
 		this.district = district;
 	}
 
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
 	public String getPincode() {
 		return pincode;
 	}
 
 	public void setPincode(String pincode) {
 		this.pincode = pincode;
-	}
-
-	public Character getStatus() {
-		return status;
-	}
-
-	public void setStatus(Character status) {
-		this.status = status;
 	}
 
 	public Long getCreateUser() {
@@ -195,6 +197,86 @@ public class CandidateAddress {
 
 	public void setUpdateOn(Date updateOn) {
 		this.updateOn = updateOn;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public MasterState getState() {
+		return state;
+	}
+
+	public void setState(MasterState state) {
+		this.state = state;
+	}
+
+	public MasterCountry getCountry() {
+		return country;
+	}
+
+	public void setCountry(MasterCountry country) {
+		this.country = country;
+	}
+
+	public Long getStateId() {
+		return stateId;
+	}
+
+	public void setStateId(Long stateId) {
+		this.stateId = stateId;
+	}
+
+	public Long getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(Long countryId) {
+		this.countryId = countryId;
+	}
+
+	public String getOtherState() {
+		return otherState;
+	}
+
+	public void setOtherState(String otherState) {
+		this.otherState = otherState;
+	}
+
+	public String getOtherCountry() {
+		return otherCountry;
+	}
+
+	public void setOtherCountry(String otherCountry) {
+		this.otherCountry = otherCountry;
+	}
+
+	public Long getSpecifyOtherStateId() {
+		return specifyOtherStateId;
+	}
+
+	public void setSpecifyOtherStateId(Long specifyOtherStateId) {
+		this.specifyOtherStateId = specifyOtherStateId;
+	}
+
+	public Long getSpecifyOtherCountryId() {
+		return specifyOtherCountryId;
+	}
+
+	public void setSpecifyOtherCountryId(Long specifyOtherCountryId) {
+		this.specifyOtherCountryId = specifyOtherCountryId;
+	}
+
+	public String getAddressStr() {
+		return addressStr;
+	}
+
+	public void setAddressStr(String addressStr) {
+		this.addressStr = addressStr;
 	}
 
 	

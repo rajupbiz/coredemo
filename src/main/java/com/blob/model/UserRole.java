@@ -30,7 +30,7 @@ public class UserRole {
 	private MasterRole role;
 	
 	@Column(name="status")
-	private Character status;
+	private String status;
 	
 	@Column(name="create_user")
 	private Long createUser;
@@ -68,11 +68,11 @@ public class UserRole {
 		this.role = role;
 	}
 
-	public Character getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Character status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
