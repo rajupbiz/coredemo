@@ -42,7 +42,7 @@ public class UiUtils {
 		String occupation = null;
 		if(CollectionUtils.isNotEmpty(occupations)){
 			CandidateOccupation ca = occupations.get(0);
-			occupation = ca.getOccupation();
+			occupation = ca.getOccupation().getOccupation();
 		}
 		return occupation;
 	}

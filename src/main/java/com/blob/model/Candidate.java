@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.blob.model.master.MasterYearlyIncome;
+
 @Entity
 @Table(name="candidate")
 public class Candidate {
@@ -59,6 +61,10 @@ public class Candidate {
 	
 	@OneToMany(mappedBy="candidate")
 	private List<CandidateMessage> candidateMessages;
+	
+	@OneToOne
+	@JoinColumn(name="yearly_income_id")
+	private MasterYearlyIncome yearlyIncome;
 
 	@Column(name="status")
 	private String status;
@@ -208,5 +214,13 @@ public class Candidate {
 
 	public void setCandidateMessages(List<CandidateMessage> candidateMessages) {
 		this.candidateMessages = candidateMessages;
+	}
+
+	public MasterYearlyIncome getYearlyIncome() {
+		return yearlyIncome;
+	}
+
+	public void setYearlyIncome(MasterYearlyIncome yearlyIncome) {
+		this.yearlyIncome = yearlyIncome;
 	}
 }
