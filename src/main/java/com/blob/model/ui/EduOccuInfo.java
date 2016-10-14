@@ -2,8 +2,8 @@ package com.blob.model.ui;
 
 import java.util.List;
 
-import com.blob.model.CandidateEducation;
-import com.blob.model.CandidateOccupation;
+import com.blob.model.candidate.CandidateEducation;
+import com.blob.model.candidate.CandidateOccupation;
 import com.blob.model.master.MasterDegree;
 import com.blob.model.master.MasterDegreeSpecialization;
 import com.blob.model.master.MasterDesignation;

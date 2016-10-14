@@ -1,4 +1,4 @@
-package com.blob.model;
+package com.blob.model.candidate;
 
 import java.util.Date;
 
@@ -11,23 +11,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.blob.model.common.User;
-
 @Entity
-@Table(name="profile_visit_log")
-public class ProfileVisitLog {
+@Table(name="candidate_shortlisted_profile")
+public class CandidateShortlistedProfile {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="visitor_user_id")
-	private User visitorUser;
+	@JoinColumn(name="candidate_id")
+	private Candidate candidate;
 	
 	@ManyToOne
-	@JoinColumn(name="visited_user_id")
-	private User visitedUser;
+	@JoinColumn(name="shortlisted_candidate_id")
+	private Candidate shortlistedCandidate;
 	
 	@Column(name="status")
 	private String status;
@@ -52,20 +50,36 @@ public class ProfileVisitLog {
 		this.id = id;
 	}
 
-	public Long getCreateUser() {
-		return createUser;
-	}
-
-	public void setCreateUser(Long createUser) {
-		this.createUser = createUser;
-	}
-
 	public Date getCreateOn() {
 		return createOn;
 	}
 
 	public void setCreateOn(Date createOn) {
 		this.createOn = createOn;
+	}
+
+	public Candidate getCandidate() {
+		return candidate;
+	}
+
+	public void setCandidate(Candidate candidate) {
+		this.candidate = candidate;
+	}
+
+	public Candidate getShortlistedCandidate() {
+		return shortlistedCandidate;
+	}
+
+	public void setShortlistedCandidate(Candidate shortlistedCandidate) {
+		this.shortlistedCandidate = shortlistedCandidate;
+	}
+
+	public Long getCreateUser() {
+		return createUser;
+	}
+
+	public void setCreateUser(Long createUser) {
+		this.createUser = createUser;
 	}
 
 	public Long getUpdateUser() {
@@ -84,22 +98,6 @@ public class ProfileVisitLog {
 		this.updateOn = updateOn;
 	}
 
-	public User getVisitorUser() {
-		return visitorUser;
-	}
-
-	public void setVisitorUser(User visitorUser) {
-		this.visitorUser = visitorUser;
-	}
-
-	public User getVisitedUser() {
-		return visitedUser;
-	}
-
-	public void setVisitedUser(User visitedUser) {
-		this.visitedUser = visitedUser;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -107,6 +105,9 @@ public class ProfileVisitLog {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	
+	
 	
 	
 }

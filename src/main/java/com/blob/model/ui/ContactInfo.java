@@ -2,8 +2,8 @@ package com.blob.model.ui;
 
 import java.util.List;
 
-import com.blob.model.CandidateAddress;
-import com.blob.model.CandidateContact;
+import com.blob.model.candidate.CandidateAddress;
+import com.blob.model.candidate.CandidateContact;
 import com.blob.model.master.MasterCountry;
 import com.blob.model.master.MasterRelationship;
 import com.blob.model.master.MasterState;

@@ -1,4 +1,4 @@
-package com.blob.model;
+package com.blob.model.common;
 
 import java.util.Date;
 
@@ -11,11 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.blob.model.common.User;
-
 @Entity
-@Table(name="search_log")
-public class SearchLog {
+@Table(name="user_session_live")
+public class UserSessionLive {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,34 +23,19 @@ public class SearchLog {
 	@JoinColumn(name="user_id")
 	private User user;
 
-	@Column(name="result_count")
-	private int resultCount;
+	@ManyToOne
+	@JoinColumn(name="user_session_id")
+	private UserSession userSession;
 	
 	@Column(name="create_on")
-	private Date createOn;
-
+	private Date create_on;
+	
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Date getCreateOn() {
-		return createOn;
-	}
-
-	public void setCreateOn(Date createOn) {
-		this.createOn = createOn;
-	}
-
-	public int getResultCount() {
-		return resultCount;
-	}
-
-	public void setResultCount(int resultCount) {
-		this.resultCount = resultCount;
 	}
 
 	public User getUser() {
@@ -63,5 +46,20 @@ public class SearchLog {
 		this.user = user;
 	}
 
-	
+	public UserSession getUserSession() {
+		return userSession;
+	}
+
+	public void setUserSession(UserSession userSession) {
+		this.userSession = userSession;
+	}
+
+	public Date getCreate_on() {
+		return create_on;
+	}
+
+	public void setCreate_on(Date create_on) {
+		this.create_on = create_on;
+	}
+
 }

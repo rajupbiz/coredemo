@@ -5,8 +5,8 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.blob.dao.CandidateDao;
-import com.blob.model.Candidate;
+import com.blob.dao.candidate.CandidateDao;
+import com.blob.model.candidate.Candidate;
 
 @Service
 public class GUtils {

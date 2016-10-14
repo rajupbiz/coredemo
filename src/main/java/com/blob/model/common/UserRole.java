@@ -1,4 +1,4 @@
-package com.blob.model;
+package com.blob.model.common;
 
 import java.util.Date;
 
@@ -11,23 +11,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.blob.model.common.User;
+import com.blob.model.master.MasterRole;
 
 @Entity
-@Table(name="profile_visit_log")
-public class ProfileVisitLog {
+@Table(name="user_role")
+public class UserRole {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="visitor_user_id")
-	private User visitorUser;
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name="visited_user_id")
-	private User visitedUser;
+	@JoinColumn(name="role_id")
+	private MasterRole role;
 	
 	@Column(name="status")
 	private String status;
@@ -50,6 +50,30 @@ public class ProfileVisitLog {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public MasterRole getRole() {
+		return role;
+	}
+
+	public void setRole(MasterRole role) {
+		this.role = role;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Long getCreateUser() {
@@ -82,30 +106,6 @@ public class ProfileVisitLog {
 
 	public void setUpdateOn(Date updateOn) {
 		this.updateOn = updateOn;
-	}
-
-	public User getVisitorUser() {
-		return visitorUser;
-	}
-
-	public void setVisitorUser(User visitorUser) {
-		this.visitorUser = visitorUser;
-	}
-
-	public User getVisitedUser() {
-		return visitedUser;
-	}
-
-	public void setVisitedUser(User visitedUser) {
-		this.visitedUser = visitedUser;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 	
 	

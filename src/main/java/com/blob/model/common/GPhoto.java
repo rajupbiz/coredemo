@@ -1,4 +1,4 @@
-package com.blob.model;
+package com.blob.model.common;
 
 import java.util.Date;
 
@@ -11,23 +11,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.blob.model.common.User;
-
 @Entity
-@Table(name="profile_visit_log")
-public class ProfileVisitLog {
-
+@Table(name="g_photo")
+public class GPhoto {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="visitor_user_id")
-	private User visitorUser;
+	@JoinColumn(name="user_id")
+	private User user;
 	
-	@ManyToOne
-	@JoinColumn(name="visited_user_id")
-	private User visitedUser;
+	@Column(name="category")
+	private String category;
+	
+	@Column(name="path")
+	private String path;
+	
+	@Column(name="is_candidate_primary_Photo")
+	private Boolean isCandidatePrimaryPhoto;
 	
 	@Column(name="status")
 	private String status;
@@ -50,6 +53,14 @@ public class ProfileVisitLog {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Long getCreateUser() {
@@ -84,29 +95,35 @@ public class ProfileVisitLog {
 		this.updateOn = updateOn;
 	}
 
-	public User getVisitorUser() {
-		return visitorUser;
+	public String getPath() {
+		return path;
 	}
 
-	public void setVisitorUser(User visitorUser) {
-		this.visitorUser = visitorUser;
+	public void setPath(String path) {
+		this.path = path;
 	}
 
-	public User getVisitedUser() {
-		return visitedUser;
+	public Boolean getIsCandidatePrimaryPhoto() {
+		return isCandidatePrimaryPhoto;
 	}
 
-	public void setVisitedUser(User visitedUser) {
-		this.visitedUser = visitedUser;
+	public void setIsCandidatePrimaryPhoto(Boolean isCandidatePrimaryPhoto) {
+		this.isCandidatePrimaryPhoto = isCandidatePrimaryPhoto;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setCategory(String category) {
+		this.category = category;
 	}
-	
-	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }

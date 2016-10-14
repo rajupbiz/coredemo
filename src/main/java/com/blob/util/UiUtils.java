@@ -1,6 +1,5 @@
 package com.blob.util;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,16 +8,11 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.blob.dao.CandidateDao;
-import com.blob.model.Candidate;
-import com.blob.model.CandidateAddress;
-import com.blob.model.CandidateContact;
-import com.blob.model.CandidateEducation;
-import com.blob.model.CandidateMessage;
-import com.blob.model.CandidateOccupation;
-import com.blob.model.CandidateShortlistedProfile;
-import com.blob.model.ui.Message;
-import com.blob.model.ui.ShortlistedProfile;
+import com.blob.dao.candidate.CandidateDao;
+import com.blob.model.candidate.CandidateAddress;
+import com.blob.model.candidate.CandidateContact;
+import com.blob.model.candidate.CandidateEducation;
+import com.blob.model.candidate.CandidateOccupation;
 
 @Service
 public class UiUtils {
@@ -96,49 +90,7 @@ public class UiUtils {
 		return contact;
 	}
 	
-	public List<ShortlistedProfile> getShortlistedProfiles(List<CandidateShortlistedProfile> candidateProfiles){
-		List<ShortlistedProfile> shortlistedProfiles = null;
-		if(CollectionUtils.isNotEmpty(candidateProfiles)){
-			shortlistedProfiles = new ArrayList<>();
-			ShortlistedProfile p = null;
-			for (CandidateShortlistedProfile profile : candidateProfiles) {
-				if(profile != null){
-					Candidate candidate = profile.getShortlistedCandidate();
-					p = new ShortlistedProfile();
-					p.setFullName(candidate.getCandidatePersonalDetail().getFirstName() + " " + candidate.getCandidatePersonalDetail().getLastName());
-					p.setDateOfBirth(DateUtils.toDDMMYYYY(DateUtils.toLocalDate(candidate.getCandidateAstroDetail().getBirthDate())));
-					p.setAddress(getAddressCityOrTown(candidate.getCandidateAddresses()));
-					p.setOccupation(getPrimaryOccupation(candidate.getCandidateOccupations()));
-					shortlistedProfiles.add(p);
-				}
-			}
-		}
-		return shortlistedProfiles;
-	}
-	
-	public List<Message> getMessages(List<CandidateMessage> candidateMessages){
-		List<Message> messages = null;
-		if(CollectionUtils.isNotEmpty(candidateMessages)){
-			messages = new ArrayList<>();
-			Message m = null;
-			for (CandidateMessage message : candidateMessages) {
-				if(message != null){
-					Candidate fromCandidate = message.getFrom();
-					m = new Message();
-					m.setMessageId(message.getId());
-					m.setFrom(fromCandidate.getCandidatePersonalDetail().getFirstName() + " " + fromCandidate.getCandidatePersonalDetail().getLastName());
-					m.setSubject(message.getSubject());
-					m.setBody(message.getBody());
-					m.setDateReceived(DateUtils.toDDMMYYYY(DateUtils.toLocalDate(message.getCreateOn())));
-					messages.add(m);
-				}
-			}
-		}
-		return messages;
-	}
-	
 	public String getLastSigndinTxt(){
 		return "";
 	}
-	
 }

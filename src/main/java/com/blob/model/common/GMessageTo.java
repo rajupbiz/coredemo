@@ -1,4 +1,4 @@
-package com.blob.model;
+package com.blob.model.common;
 
 import java.util.Date;
 
@@ -11,13 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.blob.model.common.User;
-import com.blob.model.master.MasterVisibilityField;
-import com.blob.model.master.MasterVisibilityId;
-
 @Entity
-@Table(name="user_visibility_settings")
-public class UserVisibilitySettings {
+@Table(name="g_message")
+public class GMessageTo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -26,24 +22,33 @@ public class UserVisibilitySettings {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-
-	@ManyToOne
-	@JoinColumn(name="visibility_field_id")
-	private MasterVisibilityField visibilityField;
 	
+	// parent message id
+	@Column(name="message_id")
+	private String messageId;
+	
+	// To whom message is sent
 	@ManyToOne
-	@JoinColumn(name="visibility_id")
-	private MasterVisibilityId visibilityId;
+	@JoinColumn(name="to_user_id")
+	private User to;
 	
 	@Column(name="create_on")
 	private Date createOn;
-
+	
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getMessageId() {
+		return messageId;
+	}
+
+	public void setMessageId(String messageId) {
+		this.messageId = messageId;
 	}
 
 	public Date getCreateOn() {
@@ -62,21 +67,11 @@ public class UserVisibilitySettings {
 		this.user = user;
 	}
 
-	public MasterVisibilityField getVisibilityField() {
-		return visibilityField;
+	public User getTo() {
+		return to;
 	}
 
-	public void setVisibilityField(MasterVisibilityField visibilityField) {
-		this.visibilityField = visibilityField;
+	public void setTo(User to) {
+		this.to = to;
 	}
-
-	public MasterVisibilityId getVisibilityId() {
-		return visibilityId;
-	}
-
-	public void setVisibilityId(MasterVisibilityId visibilityId) {
-		this.visibilityId = visibilityId;
-	}
-
-	
 }

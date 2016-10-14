@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.blob.model.common.User;
 import com.blob.model.master.MasterEmployeeType;
 
 @Entity
