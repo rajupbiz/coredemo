@@ -8,6 +8,8 @@ public interface GConstants {
 
 	String SpecifyOther = "Specify Other";
 	
+	String ListName_FILE_UPLOAD_PATH = "FILE_UPLOAD_PATH";
+	String ListKey_SAGAI_PHOTO = "SAGAI_PHOTO";
 	
 	
 }
