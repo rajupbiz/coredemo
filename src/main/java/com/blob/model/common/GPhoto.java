@@ -32,6 +32,9 @@ public class GPhoto {
 	@Column(name="original_file_name")
 	private String originalFileName;
 	
+	@Column(name="title")
+	private String title;
+	
 	@Column(name="file_name")
 	private String fileName;
 	
@@ -147,6 +150,14 @@ public class GPhoto {
 
 	public void setOriginalFileName(String originalFileName) {
 		this.originalFileName = originalFileName;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }

@@ -8,7 +8,7 @@ public class PhotoInfo {
 	
 	private Boolean isUploadAllowed;
 	
-	private String photoList;
+	/*private String photoList;*/
 
 	public List<Photo> getPhotos() {
 		return photos;
@@ -26,11 +26,11 @@ public class PhotoInfo {
 		this.isUploadAllowed = isUploadAllowed;
 	}
 
-	public String getPhotoList() {
+	/*public String getPhotoList() {
 		return photoList;
 	}
 
 	public void setPhotoList(String photoList) {
 		this.photoList = photoList;
-	}
+	}*/
 }
