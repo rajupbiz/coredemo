@@ -63,6 +63,9 @@ public class CandidateEducation {
 	@Column(name="update_on")
 	private Date updateOn;
 	
+	@Column(name="sequence_number")
+	private Integer sequenceNumber;
+	
 	@Transient
 	private Long degreeId;
 	
@@ -210,5 +213,13 @@ public class CandidateEducation {
 
 	public void setSpecializationStr(String specializationStr) {
 		this.specializationStr = specializationStr;
+	}
+
+	public Integer getSequenceNumber() {
+		return sequenceNumber;
+	}
+
+	public void setSequenceNumber(Integer sequenceNumber) {
+		this.sequenceNumber = sequenceNumber;
 	}
 }

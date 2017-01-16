@@ -13,7 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.blob.model.master.MasterAddressType;
 import com.blob.model.master.MasterCountry;
 import com.blob.model.master.MasterState;
 
@@ -29,10 +28,13 @@ public class CandidateAddress {
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 	
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name="address_type_id")
-	private MasterAddressType addressType;
+	private MasterAddressType addressType;*/
 
+	@Column(name="address_type")
+	private String addressType;
+	
 	@Column(name="address_line")
 	private String addressLine;
 	
@@ -111,13 +113,13 @@ public class CandidateAddress {
 		this.candidate = candidate;
 	}
 
-	public MasterAddressType getAddressType() {
+	/*public MasterAddressType getAddressType() {
 		return addressType;
 	}
 
 	public void setAddressType(MasterAddressType addressType) {
 		this.addressType = addressType;
-	}
+	}*/
 
 	public String getAddressLine() {
 		return addressLine;
@@ -277,6 +279,14 @@ public class CandidateAddress {
 
 	public void setAddressStr(String addressStr) {
 		this.addressStr = addressStr;
+	}
+
+	public String getAddressType() {
+		return addressType;
+	}
+
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
 	}
 
 	

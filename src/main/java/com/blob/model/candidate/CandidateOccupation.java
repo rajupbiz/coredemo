@@ -67,6 +67,9 @@ public class CandidateOccupation {
 	
 	@Column(name="description")
 	private String description;
+	
+	@Column(name="sequence_number")
+	private Integer sequenceNumber;
 
 	@Transient
 	private Long occupationId;
@@ -244,5 +247,13 @@ public class CandidateOccupation {
 
 	public void setYearlyIncomeStr(String yearlyIncomeStr) {
 		this.yearlyIncomeStr = yearlyIncomeStr;
+	}
+
+	public Integer getSequenceNumber() {
+		return sequenceNumber;
+	}
+
+	public void setSequenceNumber(Integer sequenceNumber) {
+		this.sequenceNumber = sequenceNumber;
 	}
 }
