@@ -4,7 +4,7 @@ public class ProfileSummary {
 
 	private String id;
 	private String gid;
-	private String name;
+	private String fullName;
 	private String dob;
 	private String fathersFullName;
 	private String currentLocation;
@@ -13,6 +13,7 @@ public class ProfileSummary {
 	private String occupation;
 	private String education;
 	private String about;
+	private String gender;
 	private String primaryPicPath;
 	
 	public String getId() {
@@ -26,12 +27,6 @@ public class ProfileSummary {
 	}
 	public void setGid(String gid) {
 		this.gid = gid;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getDob() {
 		return dob;
@@ -83,14 +78,26 @@ public class ProfileSummary {
 	}
 	@Override
 	public String toString() {
-		return "ProfileSummary [id=" + id + ", gid=" + gid + ", name=" + name + ", dob=" + dob + ", fathersFullName="
+		return "ProfileSummary [id=" + id + ", gid=" + gid + ", fullName=" + fullName + ", dob=" + dob + ", fathersFullName="
 				+ fathersFullName + ", currentLocation=" + currentLocation + ", homeTown=" + homeTown + ", mamasTown="
-				+ mamasTown + ", occupation=" + occupation + ", education=" + education + ", about=" + about + "]";
+				+ mamasTown + ", occupation=" + occupation + ", education=" + education + ", about=" + about + ", primaryPicPath=" +primaryPicPath+ " ]";
 	}
 	public String getPrimaryPicPath() {
 		return primaryPicPath;
 	}
 	public void setPrimaryPicPath(String primaryPicPath) {
 		this.primaryPicPath = primaryPicPath;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 }
