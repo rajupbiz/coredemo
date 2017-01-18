@@ -8,6 +8,8 @@ public class ProfileSearchResult {
 	private Integer pageSize;
 	private Integer totalPages;
 	private Integer currentPageNo;
+	private Integer nextPageNo;
+	private Integer previousPageNo;
 	private List<ProfileSummary> profiles;
 
 	public Long getTotalRecords() {
@@ -39,5 +41,17 @@ public class ProfileSearchResult {
 	}
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+	public Integer getNextPageNo() {
+		return nextPageNo;
+	}
+	public void setNextPageNo(Integer nextPageNo) {
+		this.nextPageNo = nextPageNo;
+	}
+	public Integer getPreviousPageNo() {
+		return previousPageNo;
+	}
+	public void setPreviousPageNo(Integer previousPageNo) {
+		this.previousPageNo = previousPageNo;
 	}
 }

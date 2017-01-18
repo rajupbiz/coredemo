@@ -5,6 +5,6 @@ public enum MenuTabEnum {
 	update_profile,
 	preview_profile,
 	search,
-	privacy_profile,
+	shortlisted_profiles,
 	more
 }
