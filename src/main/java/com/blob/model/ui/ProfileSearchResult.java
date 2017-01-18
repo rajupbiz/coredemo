@@ -5,6 +5,7 @@ import java.util.List;
 public class ProfileSearchResult {
 
 	private Long totalRecords;
+	private Integer pageSize;
 	private Integer totalPages;
 	private Integer currentPageNo;
 	private List<ProfileSummary> profiles;
@@ -32,5 +33,11 @@ public class ProfileSearchResult {
 	}
 	public void setProfiles(List<ProfileSummary> profiles) {
 		this.profiles = profiles;
+	}
+	public Integer getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 }

@@ -15,17 +15,17 @@ public interface CandidateDao extends GenericDao<Candidate, Long> {
 
 	@Query(value = "SELECT count(c.id) FROM candidate c "+
 			" INNER JOIN candidate_personal_detail cpd ON (c.id = cpd.candidate_id) "+
-			" WHERE CASE WHEN (?1 IS NULL OR ?1 = '') THEN 1 ELSE c.gid = ?1 END "+
-			" AND CONCAT(cpd.first_name, ' ', cpd.last_name) LIKE ?2 AND c.status = 'Active' ",	//	c.gid = ?1 AND CONCAT(cpd.first_name, ' ', cpd.last_name) LIKE ?2 
+			" WHERE c.id <> ?1 AND CASE WHEN (?2 IS NULL OR ?2 = '') THEN 1 ELSE c.gid = ?2 END "+
+			" AND CONCAT(cpd.first_name, ' ', cpd.last_name) LIKE ?3 AND c.status = 'Active' ",	//	c.gid = ?1 AND CONCAT(cpd.first_name, ' ', cpd.last_name) LIKE ?2 
 			nativeQuery = true)
-	Long countResult(String gid, String name);	//	
+	Long countResult(String cid, String gid, String name);	//	
 	
 	@Query(value = "SELECT c.id FROM candidate c "+
 			" INNER JOIN candidate_personal_detail cpd ON (c.id = cpd.candidate_id) "+
-			" WHERE CASE WHEN (?1 IS NULL OR ?1 = '') THEN 1 ELSE c.gid = ?1 END "+
-			" AND CONCAT(cpd.first_name, ' ', cpd.last_name) LIKE ?2 AND c.status = 'Active' \n#pageable\n", 
+			" WHERE c.id <> ?1 AND CASE WHEN (?2 IS NULL OR ?2 = '') THEN 1 ELSE c.gid = ?2 END "+
+			" AND CONCAT(cpd.first_name, ' ', cpd.last_name) LIKE ?3 AND c.status = 'Active' \n#pageable\n", 
 			nativeQuery = true)
-	List<BigInteger> searchCandidates(String gid, String name, Pageable pageable);
+	List<BigInteger> searchCandidates(String cid, String gid, String name, Pageable pageable);
 	
 	
 	@Query(value = "select c.id, c.gid, c.user_id, pd.first_name, pd.last_name, f.father_first_name, f.father_middle_name, " // 0-6
@@ -41,7 +41,7 @@ public interface CandidateDao extends GenericDao<Candidate, Long> {
 					+" left outer join candidate_occupation occ on (c.id = occ.candidate_id and occ.sequence_number = 1) "
 					+" left outer join candidate_education edu on (c.id = edu.candidate_id and edu.sequence_number = 1) "
 					+" left outer join g_photo photo on (c.user_id = photo.user_id and photo.category = 'Sagai' and photo.status = 'Active' and photo.is_sagai_primary = 1) "
-					+" where c.id in ( ?1 ) ", 
+					+" where c.id in ( ?1 ) order by c.id desc ", 
 					nativeQuery = true)
 	List<Object[]> getCandidatesSummary(List<BigInteger> candidateList);
 }

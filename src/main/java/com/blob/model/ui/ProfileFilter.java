@@ -6,6 +6,7 @@ import com.blob.model.master.MasterDegree;
 
 public class ProfileFilter {
 
+	private Long loggedInCandidateId;
 	private String gid;
 	private String name;
 	private String city;
@@ -48,5 +49,11 @@ public class ProfileFilter {
 	}
 	public void setDegreeOptions(List<MasterDegree> degreeOptions) {
 		this.degreeOptions = degreeOptions;
+	}
+	public Long getLoggedInCandidateId() {
+		return loggedInCandidateId;
+	}
+	public void setLoggedInCandidateId(Long loggedInCandidateId) {
+		this.loggedInCandidateId = loggedInCandidateId;
 	}
 }

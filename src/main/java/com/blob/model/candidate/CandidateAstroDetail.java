@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.blob.model.master.MasterCharan;
 import com.blob.model.master.MasterDayOfWeek;
@@ -33,9 +35,11 @@ public class CandidateAstroDetail {
 	@Column(name="birth_name")
 	private String birthName;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name="birth_date")
 	private Date birthDate;
 	
+	@Temporal(TemporalType.TIME)
 	@Column(name="birth_time")
 	private Date birthTime;
 

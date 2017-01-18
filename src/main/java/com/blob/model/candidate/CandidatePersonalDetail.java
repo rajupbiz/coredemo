@@ -116,8 +116,8 @@ public class CandidatePersonalDetail {
 	@Column(name="handicap_detail")
 	private String handicapDetail;
 	
-	@Column(name="nativePlace")
-	private String nativePlace;
+	/*@Column(name="nativePlace")
+	private String nativePlace;*/
 	
 	@ManyToOne
 	@JoinColumn(name="smoker_type_id")
@@ -384,11 +384,11 @@ public class CandidatePersonalDetail {
 		this.weight = weight;
 	}
 
-	public String getNativePlace() {
+	/*public String getNativePlace() {
 		return nativePlace;
 	}
 
 	public void setNativePlace(String nativePlace) {
 		this.nativePlace = nativePlace;
-	}
+	}*/
 }
