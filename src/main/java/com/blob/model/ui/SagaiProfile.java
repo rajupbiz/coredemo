@@ -67,9 +67,9 @@ public class SagaiProfile {
 		StringBuffer profileFromStr = new StringBuffer();
 		if(contactInfo != null){
 			if(StringUtils.isNotBlank(contactInfo.getNativePlace())){
-				profileFromStr.append(contactInfo.getNativePlace());
+				profileFromStr.append("from "+contactInfo.getNativePlace());
 				if(StringUtils.isNotBlank(contactInfo.getCurrentLocation())){
-					profileFromStr.append("("+contactInfo.getCurrentLocation()+")");
+					profileFromStr.append(" ("+contactInfo.getCurrentLocation()+")");
 				}
 			}
 		}
