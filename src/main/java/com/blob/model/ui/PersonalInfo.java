@@ -13,6 +13,7 @@ public class PersonalInfo {
 	private String firstName;
 	private String middleName;
 	private String lastName;
+	@SuppressWarnings("unused")
 	private String fullName;
 	private String gender;
 	private Long genderId;

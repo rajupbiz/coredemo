@@ -1,10 +1,14 @@
 package com.blob.model.ui;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class FamilyInfo {
 
 	private String fatherFirstName;
 	private String fatherMiddleName;
 	private String fatherLastName;
+	@SuppressWarnings("unused")
+	private String fatherFullName;
 	private String motherFirstName;
 	private Integer noOfBrother;
 	private Integer noOfSister;
@@ -16,6 +20,7 @@ public class FamilyInfo {
 	private String mamasFirstName;
 	private String mamasMiddleName;
 	private String mamasLastName;
+	private String mamasName;
 	private String mamasNativePlace;
 	private String mamasCurrentPlace;
 	
@@ -114,5 +119,33 @@ public class FamilyInfo {
 	}
 	public void setNoOfMarriedSister(Integer noOfMarriedSister) {
 		this.noOfMarriedSister = noOfMarriedSister;
+	}
+	public String getFatherFullName() {
+		StringBuffer fullNameStr = new StringBuffer();
+		fullNameStr.append(fatherFirstName);
+		if(StringUtils.isNotBlank(fatherMiddleName)){
+			fullNameStr.append(" "+fatherMiddleName);
+		}
+		if(StringUtils.isNotBlank(fatherLastName)){
+			fullNameStr.append(" "+fatherLastName);
+		}
+		return fullNameStr.toString();
+	}
+	public void setFatherFullName(String fatherFullName) {
+		this.fatherFullName = fatherFullName;
+	}
+	public String getMamasName() {
+		StringBuffer fullNameStr = new StringBuffer();
+		fullNameStr.append(mamasFirstName);
+		if(StringUtils.isNotBlank(mamasMiddleName)){
+			fullNameStr.append(" "+mamasMiddleName);
+		}
+		if(StringUtils.isNotBlank(mamasLastName)){
+			fullNameStr.append(" "+mamasLastName);
+		}
+		return fullNameStr.toString();
+	}
+	public void setMamasName(String mamasName) {
+		this.mamasName = mamasName;
 	}
 }

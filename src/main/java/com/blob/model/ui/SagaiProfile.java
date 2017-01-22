@@ -1,10 +1,14 @@
 package com.blob.model.ui;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class SagaiProfile {
 	
 	private Long id;
 	private String gid;
 	private String primaryPicPath;
+	@SuppressWarnings("unused")
+	private String profileFrom;
 	private PersonalInfo personalInfo;
 	private FamilyInfo familyInfo;
 	private ContactInfo contactInfo;
@@ -58,5 +62,20 @@ public class SagaiProfile {
 	}
 	public void setPrimaryPicPath(String primaryPicPath) {
 		this.primaryPicPath = primaryPicPath;
+	}
+	public String getProfileFrom() {
+		StringBuffer profileFromStr = new StringBuffer();
+		if(contactInfo != null){
+			if(StringUtils.isNotBlank(contactInfo.getNativePlace())){
+				profileFromStr.append(contactInfo.getNativePlace());
+				if(StringUtils.isNotBlank(contactInfo.getCurrentLocation())){
+					profileFromStr.append("("+contactInfo.getCurrentLocation()+")");
+				}
+			}
+		}
+		return profileFromStr.toString();
+	}
+	public void setProfileFrom(String profileFrom) {
+		this.profileFrom = profileFrom;
 	}
 }
