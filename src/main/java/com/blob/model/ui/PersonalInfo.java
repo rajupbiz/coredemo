@@ -2,6 +2,8 @@ package com.blob.model.ui;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.blob.model.master.MasterBloodGroup;
 import com.blob.model.master.MasterDayOfWeek;
 import com.blob.model.master.MasterMaritalStatus;
@@ -11,6 +13,7 @@ public class PersonalInfo {
 	private String firstName;
 	private String middleName;
 	private String lastName;
+	private String fullName;
 	private String gender;
 	private Long genderId;
 	private String maritalStatus;
@@ -176,5 +179,20 @@ public class PersonalInfo {
 	}
 	public void setBloodGroupOptions(List<MasterBloodGroup> bloodGroupOptions) {
 		this.bloodGroupOptions = bloodGroupOptions;
+	}
+	public String getFullName() {
+		
+		StringBuffer fullNameStr = new StringBuffer();
+		fullNameStr.append(firstName);
+		if(StringUtils.isNotBlank(middleName)){
+			fullNameStr.append(" "+middleName);
+		}
+		if(StringUtils.isNotBlank(lastName)){
+			fullNameStr.append(" "+lastName);
+		}
+		return fullNameStr.toString();
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 }

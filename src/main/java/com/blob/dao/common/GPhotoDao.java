@@ -12,4 +12,6 @@ public interface GPhotoDao extends GenericDao<GPhoto, Long> {
 	GPhoto findByUserAndIsSagaiPrimary(User user, Boolean isSagaiPrimary);
 	
 	Long countByUserAndCategory(User user, String category);
+	
+	GPhoto findByFileNameLikeAndStatus(String fileName, String status);
 }

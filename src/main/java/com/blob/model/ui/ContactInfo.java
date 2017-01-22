@@ -11,6 +11,7 @@ import com.blob.model.master.MasterState;
 public class ContactInfo {
 
 	private String nativePlace;
+	private String currentLocation;
 	private List<CandidateContact> contacts;
 	private CandidateAddress address;
 	private List<MasterRelationship> relationshipOptions;
@@ -52,5 +53,11 @@ public class ContactInfo {
 	}
 	public void setCountryOptions(List<MasterCountry> countryOptions) {
 		this.countryOptions = countryOptions;
+	}
+	public String getCurrentLocation() {
+		return currentLocation;
+	}
+	public void setCurrentLocation(String currentLocation) {
+		this.currentLocation = currentLocation;
 	}
 }
