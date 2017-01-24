@@ -13,7 +13,7 @@ public class ContactInfo {
 	private String nativePlace;
 	private String currentLocation;
 	private List<CandidateContact> contacts;
-	private CandidateAddress address;
+	private List<CandidateAddress> addresses;
 	private List<MasterRelationship> relationshipOptions;
 	private List<MasterState> stateOptions;
 	private List<MasterCountry> countryOptions;
@@ -30,12 +30,12 @@ public class ContactInfo {
 	public void setContacts(List<CandidateContact> contacts) {
 		this.contacts = contacts;
 	}
-	public CandidateAddress getAddress() {
+	/*public CandidateAddress getAddress() {
 		return address;
 	}
 	public void setAddress(CandidateAddress address) {
 		this.address = address;
-	}
+	}*/
 	public List<MasterRelationship> getRelationshipOptions() {
 		return relationshipOptions;
 	}
@@ -59,5 +59,11 @@ public class ContactInfo {
 	}
 	public void setCurrentLocation(String currentLocation) {
 		this.currentLocation = currentLocation;
+	}
+	public List<CandidateAddress> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(List<CandidateAddress> addresses) {
+		this.addresses = addresses;
 	}
 }

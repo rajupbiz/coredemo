@@ -19,6 +19,14 @@ public class GUtils {
 	
 	/**
 	 * Generate unique 6 char gid
+	 * TODO: to avoid random number generation use algorithm to have unique number generated sequentially like AZ9999, AZ9998, AZ9997 etc..
+	 * 		-	Have list of 2 character strings like (AA, AB,AC etc)
+	 * 		-	Get last userId and GID for last user Id	
+	 * 		-	Pick last user's first 2 characters, lets say last userid is 799 and first 2 characters of GID are AK
+	 * 		- 	Get last characters like lets day 0780
+	 * 		-	if (0780 + 1) <= 9999 then new GID is AK0781
+	 * 		-	else GID is AH (get next 2 characters from list of character strings from database table by order number and status as ACTIVE and make the status as IN PROGRESS)
+	 * 
 	 */
 	public String generateGid(){
 		

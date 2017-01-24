@@ -6,5 +6,5 @@ import com.blob.model.candidate.CandidateAddress;
 
 public interface CandidateAddressDao extends GenericDao<CandidateAddress, Long> {
 
-	CandidateAddress findByCandidateAndAddressTypeAndStatus(Candidate c, String addressType, String Status);
+	CandidateAddress findFirstByCandidateAndAddressTypeAndStatusOrderByUpdateOnDesc(Candidate c, String addressType, String Status);
 }

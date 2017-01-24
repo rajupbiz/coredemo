@@ -25,6 +25,8 @@ public class DashboardInfo {
 	private String weight;
 	private List<ShortlistedProfile> shortlistedProfiles;
 	private List<Message> messages;
+	//private String primaryPicPath;
+	private PhotoInfo photoInfo;
 	
 	public String getGid() {
 		return gid;
@@ -151,5 +153,11 @@ public class DashboardInfo {
 	}
 	public void setCurrentLocation(String currentLocation) {
 		this.currentLocation = currentLocation;
+	}
+	public PhotoInfo getPhotoInfo() {
+		return photoInfo;
+	}
+	public void setPhotoInfo(PhotoInfo photoInfo) {
+		this.photoInfo = photoInfo;
 	} 
 }
