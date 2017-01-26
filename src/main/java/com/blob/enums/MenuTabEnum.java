@@ -1,10 +1,20 @@
 package com.blob.enums;
 
 public enum MenuTabEnum {
-	home,
-	update_profile,
-	preview_profile,
-	search,
-	shortlisted_profiles,
-	more
+	sagai_home,
+	sagai_update_profile,
+	sagai_preview_profile,
+	sagai_search,
+	sagai_shortlisted_profiles,
+	more,
+	
+	id_home,
+	id_search,
+	id_update_profile,
+	id_view_profile,
+	
+	job_home,
+	job_search,
+	job_update_resume,
+	job_view_resume
 }

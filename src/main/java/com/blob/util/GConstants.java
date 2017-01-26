@@ -29,5 +29,7 @@ public interface GConstants {
 	
 	String Service_IDENTITY = "IDENTITY";
 	String Service_SAGAI = "SAGAI";
+	String Service_JOB = "JOB";
+	String Service_TODO = "TODO";
 	
 }
