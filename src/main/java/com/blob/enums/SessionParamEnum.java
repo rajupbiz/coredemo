@@ -1,6 +1,7 @@
 package com.blob.enums;
 
 public enum SessionParamEnum {
+	ACCOUNT,
 	USER,
 	LAST_LOGGED_IN,
 	SERVICE,

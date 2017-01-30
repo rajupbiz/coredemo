@@ -1,4 +1,4 @@
-package com.blob.model.common;
+package com.blob.model.account;
 
 import java.util.Date;
 
@@ -11,31 +11,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.blob.model.account.AccountSession;
+import com.blob.model.master.MasterPrivilege;
 
 @Entity
-@Table(name="error_log")
-public class ErrorLog {
+@Table(name="account_log")
+public class AccountLog {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
 	@ManyToOne
+	@JoinColumn(name="account_id")
+	private Account account;
+
+	@ManyToOne
 	@JoinColumn(name="account_session_id")
 	private AccountSession accountSession;
-
-	@Column(name="error_level")
-	private String errorLevel;
 	
-	@Column(name="error_code")
-	private String errorCode;
+	@ManyToOne
+	@JoinColumn(name="privilege_id")
+	private MasterPrivilege privilege;
 	
-	@Column(name="error_message")
-	private String errorMessage;
+	@Column(name=" request_in_on")
+	private Date request_in_on;
 	
-	@Column(name="error_cause")
-	private String errorCause;
+	@Column(name="request_out_on")
+	private Date request_out_on;
 	
 	@Column(name="create_on")
 	private Date create_on;
@@ -56,36 +58,36 @@ public class ErrorLog {
 		this.create_on = create_on;
 	}
 
-	public String getErrorLevel() {
-		return errorLevel;
+	public MasterPrivilege getPrivilege() {
+		return privilege;
 	}
 
-	public void setErrorLevel(String errorLevel) {
-		this.errorLevel = errorLevel;
+	public void setPrivilege(MasterPrivilege privilege) {
+		this.privilege = privilege;
 	}
 
-	public String getErrorCode() {
-		return errorCode;
+	public Date getRequest_in_on() {
+		return request_in_on;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setRequest_in_on(Date request_in_on) {
+		this.request_in_on = request_in_on;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public Date getRequest_out_on() {
+		return request_out_on;
 	}
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public void setRequest_out_on(Date request_out_on) {
+		this.request_out_on = request_out_on;
 	}
 
-	public String getErrorCause() {
-		return errorCause;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setErrorCause(String errorCause) {
-		this.errorCause = errorCause;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 	public AccountSession getAccountSession() {

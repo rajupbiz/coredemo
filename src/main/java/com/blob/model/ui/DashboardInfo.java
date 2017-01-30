@@ -18,7 +18,8 @@ public class DashboardInfo {
 	private String occupation;
 	private String education;
 	private String address;
-	private String currentLocation;
+	private String nativePlace;
+	private String currentPlace;
 	private String contact;
 	private String height;
 	private String heightFoot;
@@ -148,16 +149,22 @@ public class DashboardInfo {
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
 	}
-	public String getCurrentLocation() {
-		return currentLocation;
-	}
-	public void setCurrentLocation(String currentLocation) {
-		this.currentLocation = currentLocation;
-	}
 	public PhotoInfo getPhotoInfo() {
 		return photoInfo;
 	}
 	public void setPhotoInfo(PhotoInfo photoInfo) {
 		this.photoInfo = photoInfo;
+	}
+	public String getNativePlace() {
+		return nativePlace;
+	}
+	public void setNativePlace(String nativePlace) {
+		this.nativePlace = nativePlace;
+	}
+	public String getCurrentPlace() {
+		return currentPlace;
+	}
+	public void setCurrentPlace(String currentPlace) {
+		this.currentPlace = currentPlace;
 	} 
 }

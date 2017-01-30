@@ -2,18 +2,18 @@ package com.blob.model.ui;
 
 import java.util.List;
 
-import com.blob.model.candidate.CandidateEducation;
-import com.blob.model.candidate.CandidateOccupation;
 import com.blob.model.master.MasterDegree;
 import com.blob.model.master.MasterDegreeSpecialization;
 import com.blob.model.master.MasterDesignation;
 import com.blob.model.master.MasterOccupation;
 import com.blob.model.master.MasterYearlyIncome;
+import com.blob.model.user.UserEducation;
+import com.blob.model.user.UserOccupation;
 
 public class EduOccuInfo {
 
-	private List<CandidateEducation> educations;
-	private List<CandidateOccupation> occupations;
+	private List<UserEducation> educations;
+	private List<UserOccupation> occupations;
 	private String yearlyIncomeStr;
 	private Long yearlyIncomeId;
 	private List<MasterDegree> degreeOptions;
@@ -22,16 +22,16 @@ public class EduOccuInfo {
 	private List<MasterOccupation> occupationOptions;
 	private List<MasterYearlyIncome> yearlyIncomeOptions;
 
-	public List<CandidateEducation> getEducations() {
+	public List<UserEducation> getEducations() {
 		return educations;
 	}
-	public void setEducations(List<CandidateEducation> educations) {
+	public void setEducations(List<UserEducation> educations) {
 		this.educations = educations;
 	}
-	public List<CandidateOccupation> getOccupations() {
+	public List<UserOccupation> getOccupations() {
 		return occupations;
 	}
-	public void setOccupations(List<CandidateOccupation> occupations) {
+	public void setOccupations(List<UserOccupation> occupations) {
 		this.occupations = occupations;
 	}
 	public List<MasterDegree> getDegreeOptions() {

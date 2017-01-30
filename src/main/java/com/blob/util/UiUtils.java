@@ -8,11 +8,11 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.blob.dao.candidate.CandidateDao;
-import com.blob.model.candidate.CandidateAddress;
-import com.blob.model.candidate.CandidateContact;
-import com.blob.model.candidate.CandidateEducation;
-import com.blob.model.candidate.CandidateOccupation;
+import com.blob.dao.user.UserDao;
+import com.blob.model.user.UserAddress;
+import com.blob.model.user.UserContact;
+import com.blob.model.user.UserEducation;
+import com.blob.model.user.UserOccupation;
 
 @Service
 public class UiUtils {
@@ -21,30 +21,30 @@ public class UiUtils {
 	private GidGenerator gidGenerator;
 	
 	@Resource
-	private CandidateDao candidateDao;
+	private UserDao UserDao;
 	
-	public String getAddressCityOrTown(List<CandidateAddress> addresses){
+	/*public String getAddressCityOrTown(List<UserAddress> addresses){
 		String cityOrTown = null;
 		if(CollectionUtils.isNotEmpty(addresses)){
-			CandidateAddress ca = addresses.get(0);
+			UserAddress ca = addresses.get(0);
 			cityOrTown = ca.getCityOrTown();
 		}
 		return cityOrTown;
-	}
+	}*/
 	
-	public String getPrimaryOccupation(List<CandidateOccupation> occupations){
+	public String getPrimaryOccupation(List<UserOccupation> occupations){
 		String occupation = null;
 		if(CollectionUtils.isNotEmpty(occupations)){
-			CandidateOccupation ca = occupations.get(0);
+			UserOccupation ca = occupations.get(0);
 			occupation = ca.getOccupation().getOccupation();
 		}
 		return occupation;
 	}
 	
-	public String getAddressTxt(List<CandidateAddress> addresses){
+	public String getAddressTxt(List<UserAddress> addresses){
 		StringBuffer addressStr = new StringBuffer();
 		if(CollectionUtils.isNotEmpty(addresses)){
-			CandidateAddress ca = addresses.get(0);
+			UserAddress ca = addresses.get(0);
 			if(StringUtils.isNotBlank(ca.getAddressLine())){
 				addressStr.append(ca.getAddressLine()+", ");
 			}
@@ -58,33 +58,33 @@ public class UiUtils {
 				addressStr.append(ca.getDistrict()+", ");
 			}
 			if(ca.getState() != null){
-				addressStr.append(ca.getState().getState()+", ");
+				addressStr.append(ca.getState()+", ");
 			}
 			if(ca.getCountry() != null){
-				addressStr.append(ca.getCountry().getCountry()+", ");
+				addressStr.append(ca.getCountry()+", ");
 			}
 		}
 		return addressStr.toString();
 	}
 	
-	public String getOccupationTxt(List<CandidateOccupation> occupations){
+	public String getOccupationTxt(List<UserOccupation> occupations){
 		if(CollectionUtils.isNotEmpty(occupations)){
 			
 		}
 		return "";
 	}
 	
-	public String getEducationTxt(List<CandidateEducation> educations){
+	public String getEducationTxt(List<UserEducation> educations){
 		if(CollectionUtils.isNotEmpty(educations)){
 			
 		}
 		return "";
 	}
 	
-	public String getContactTxt(List<CandidateContact> contacts){
+	public String getContactTxt(List<UserContact> contacts){
 		String contact = "";
 		if(CollectionUtils.isNotEmpty(contacts)){
-			CandidateContact c = contacts.get(0);
+			UserContact c = contacts.get(0);
 			contact = c.getMobile();
 		}
 		return contact;

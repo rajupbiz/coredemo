@@ -20,6 +20,7 @@ public class FamilyInfo {
 	private String mamasFirstName;
 	private String mamasMiddleName;
 	private String mamasLastName;
+	@SuppressWarnings("unused")
 	private String mamasName;
 	private String mamasNativePlace;
 	private String mamasCurrentPlace;

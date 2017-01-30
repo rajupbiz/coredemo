@@ -2,18 +2,18 @@ package com.blob.model.ui;
 
 import java.util.List;
 
-import com.blob.model.candidate.CandidateAddress;
-import com.blob.model.candidate.CandidateContact;
 import com.blob.model.master.MasterCountry;
 import com.blob.model.master.MasterRelationship;
 import com.blob.model.master.MasterState;
+import com.blob.model.user.UserAddress;
+import com.blob.model.user.UserContact;
 
 public class ContactInfo {
 
 	private String nativePlace;
 	private String currentLocation;
-	private List<CandidateContact> contacts;
-	private List<CandidateAddress> addresses;
+	private List<UserContact> contacts;
+	private List<UserAddress> addresses;
 	private List<MasterRelationship> relationshipOptions;
 	private List<MasterState> stateOptions;
 	private List<MasterCountry> countryOptions;
@@ -24,16 +24,16 @@ public class ContactInfo {
 	public void setNativePlace(String nativePlace) {
 		this.nativePlace = nativePlace;
 	}
-	public List<CandidateContact> getContacts() {
+	public List<UserContact> getContacts() {
 		return contacts;
 	}
-	public void setContacts(List<CandidateContact> contacts) {
+	public void setContacts(List<UserContact> contacts) {
 		this.contacts = contacts;
 	}
-	/*public CandidateAddress getAddress() {
+	/*public UserAddress getAddress() {
 		return address;
 	}
-	public void setAddress(CandidateAddress address) {
+	public void setAddress(UserAddress address) {
 		this.address = address;
 	}*/
 	public List<MasterRelationship> getRelationshipOptions() {
@@ -60,10 +60,10 @@ public class ContactInfo {
 	public void setCurrentLocation(String currentLocation) {
 		this.currentLocation = currentLocation;
 	}
-	public List<CandidateAddress> getAddresses() {
+	public List<UserAddress> getAddresses() {
 		return addresses;
 	}
-	public void setAddresses(List<CandidateAddress> addresses) {
+	public void setAddresses(List<UserAddress> addresses) {
 		this.addresses = addresses;
 	}
 }
