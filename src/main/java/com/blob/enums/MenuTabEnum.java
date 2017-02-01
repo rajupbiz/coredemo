@@ -16,5 +16,7 @@ public enum MenuTabEnum {
 	job_home,
 	job_search,
 	job_update_resume,
-	job_view_resume
+	job_view_resume,
+	
+	common_account_settings
 }

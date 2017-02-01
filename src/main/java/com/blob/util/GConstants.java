@@ -27,6 +27,7 @@ public interface GConstants {
 	String Gender_Male = "Male";
 	String Gender_Female = "Female";
 	
+	String Service_NA = "NA";
 	String Service_IDENTITY = "IDENTITY";
 	String Service_SAGAI = "SAGAI";
 	String Service_JOB = "JOB";
