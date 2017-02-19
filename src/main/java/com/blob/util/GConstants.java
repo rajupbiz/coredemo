@@ -12,9 +12,12 @@ public interface GConstants {
 	
 	String ListKey_FILE_UPLOAD_PATH = "FILE_UPLOAD_PATH";
 	String ListName_SAGAI_DEFAULT = "SAGAI_DEFAULT";
+	String ListName_ID_DEFAULT = "ID_DEFAULT";
+	String ListName_JOB_DEFAULT = "JOB_DEFAULT";
 	
 	String SAGAI_DEFAULT_FILE_UPLOAD_PATH = "SAGAI_DEFAULT_FILE_UPLOAD_PATH";
 	String SAGAI_DEFAULT_PAGE_SIZE = "SAGAI_DEFAULT_PAGE_SIZE";
+	String ID_DEFAULT_PAGE_SIZE = "ID_DEFAULT_PAGE_SIZE";
 	
 	String Status_Active = "Active";
 	String Status_Inactive = "Inactive";
